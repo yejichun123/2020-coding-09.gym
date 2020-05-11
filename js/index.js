@@ -9,3 +9,9 @@ $(".navi").click(function(){
 	$(this).css("color", "black")
 	$(this).find(".navi-wrap").css("color", "#777777")
 })
+
+$(".bt-learn").hover(function(){
+	$(this).find(".bt-animation").stop().fadeIn(300)
+}, function(){
+	$(this).find(".bt-animation").stop().fadeOut(300)
+})
