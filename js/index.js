@@ -16,3 +16,14 @@ $(".bt-learn").hover(function(){
 }, function(){
 	$(this).find(".bt-animation").stop().fadeOut(300)
 })
+
+$(".class-list").hover(function(){
+	$(this).find(".darken").stop().fadeOut(300)
+	$(this).find(".class-name").stop().fadeOut(300)
+	$(this).find(".class-pic").css("transform", "scale(1.1)")
+}, function(){
+	$(this).find(".darken").stop().fadeIn(300)
+	$(this).find(".class-name").stop().fadeIn(300)
+	$(this).find(".class-pic").css("transform", "scale(1)")
+})
+
