@@ -20,11 +20,11 @@ $(".bt-learn").hover(function(){
 $(".class-list").hover(function(){
 	$(this).find(".darken").stop().fadeOut(300)
 	$(this).find(".class-name").stop().fadeOut(300)
-	$(this).find(".class-pic").css("transform", "scale(1.1)")
+	$(this).find(".class-pic").css("transform", "translateX(-16%) scale(1.1)")
 }, function(){
 	$(this).find(".darken").stop().fadeIn(300)
 	$(this).find(".class-name").stop().fadeIn(300)
-	$(this).find(".class-pic").css("transform", "scale(1)")
+	$(this).find(".class-pic").css("transform", "translateX(-16%) scale(1)")
 })
 
 $(".ad-icon").hover(function(){

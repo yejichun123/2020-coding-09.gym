@@ -61,7 +61,7 @@ font-family: 'Oswald', sans-serif; */
 /************* Classes **************/
 .class-lists {padding: 0.6616%; background-color: black; color: white;}
 .class-list {float: left; width: 32%; margin: 0.6616%; position: relative; text-align: center; overflow: hidden; cursor: pointer; transition: all 0.5s;}
-.class-pic {height: 100%; left: 50%; transform: translateX(-16%); transition: all 2s;}
+.class-pic {height: 100%; left: 50%; transform: translateX(-16%) scale(1); transition: all 2s;}
 .class-name {position: absolute; width: 100%; top: 50%; transform: translateY(-50%);}
 /* .class-lists .darken:hover {display: none;} */
 
@@ -80,7 +80,7 @@ font-family: 'Oswald', sans-serif; */
 .ad .desc {padding: 0 27%; margin-top: 15px;}
 .ad-phrase {float: left; width: 20%;}
 .ad-icon {width: 100px; height: 100px; border-radius: 50%; border: 3px solid #555; margin: 10px auto; position: relative;}
-.icon-sub {background-color:  rgba(15, 15, 15, 0.5); color: white; position: absolute; width: 200px; bottom: 120px; left: 50%; transform: translateX(-50%); padding: 10px; display: none; transition: all 0.5s;}
+.icon-sub {background-color:  rgba(15, 15, 15, 0.5); color: white; position: absolute; width: 200px; bottom: 120px; left: 50%; transform: translateX(-50%); padding: 10px; display: none; /*transition: all 0.5s;*/}
 .ad-icon > .fa {font-size: 40px; line-height: 90px;}
 .phrase {font-family: 'Oswald', sans-serif;}
 
