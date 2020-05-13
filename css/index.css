@@ -47,7 +47,7 @@ font-family: 'Oswald', sans-serif; */
 .banner2-sub:nth-child(1) {background-color: rgb(211, 43, 21);}
 .banner2-sub:nth-child(2) {background-color: #222;}
 .banner2-sub:nth-child(3) {background-color: #444;}
-
+.banner2-desc {font-family: 'Lato', sans-serif; line-height: 25px; font-size: 16px;}
 
 .banner3 {height: 50vh; background: url(../img/bg1.jpg) no-repeat center; background-attachment: fixed; background-size: cover; color: white; position: relative;}
 .darken2 {background-color: black; opacity: 0.7; width: 100%; height: 100%;}
@@ -79,7 +79,7 @@ font-family: 'Oswald', sans-serif; */
 .ad .title {margin: auto; max-width: 750px;}
 .ad .desc {padding: 0 27%; margin-top: 15px;}
 .ad-phrase {float: left; width: 20%;}
-.ad-icon {width: 100px; height: 100px; border-radius: 50%; border: 3px solid #555; margin: auto; position: relative;}
+.ad-icon {width: 100px; height: 100px; border-radius: 50%; border: 3px solid #555; margin: 10px auto; position: relative;}
 .icon-sub {background-color:  rgba(15, 15, 15, 0.5); color: white; position: absolute; width: 200px; bottom: 120px; left: 50%; transform: translateX(-50%); padding: 10px; display: none; transition: all 0.5s;}
 .ad-icon > .fa {font-size: 40px; line-height: 90px;}
 .phrase {font-family: 'Oswald', sans-serif;}
