@@ -27,3 +27,8 @@ $(".class-list").hover(function(){
 	$(this).find(".class-pic").css("transform", "scale(1)")
 })
 
+$(".ad-icon").hover(function(){
+	$(this).find(".icon-sub").stop().slideUp(300)
+}, function(){
+	$(this).find(".icon-sub").stop().slideDown(300)
+})
