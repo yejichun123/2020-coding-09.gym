@@ -9,8 +9,9 @@ html {font-size: 12px;}
 .header > .navi-wrap > .navi {padding: 0.125rem 1rem; line-height: 1rem;}
 .header .bor-rt {border-right: 1px solid #ccc;}
 
-.header .navi {float: left;}
-.header > .navi-wrap-mobile {display: none;}
+.header .navi {float: left; position: relative;}
+.header > .subs {display: none; width: 260px; left: 0; top: 0; padding-top: 4.25rem; display: none; background-color: #ccc;}
+.header .sub {padding: 0.5rem;}
 
 
 @media screen and (max-width: 767px) {
