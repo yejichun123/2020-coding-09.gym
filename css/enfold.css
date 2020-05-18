@@ -1,0 +1,41 @@
+html {font-size: 12px;}
+.wrapper {max-width: 1200px; margin: 0 auto;}
+
+/********************* header *********************/
+.header {border: 1px solid red; padding: 0 2rem;}
+.header > .logo {float: left; width: 120px;}
+.header > .navi-wrap, .header > .navi-wrap-mobile {float: right;}
+.header > .navi-wrap {padding: 3rem;}
+.header > .navi-wrap > .navi {padding: 0.125rem 1rem; line-height: 1rem;}
+.header .bor-rt {border-right: 1px solid #ccc;}
+
+.header .navi {float: left;}
+.header > .navi-wrap-mobile {display: none;}
+
+
+@media screen and (max-width: 767px) {
+	html {font-size: 16px;}
+	.header > .navi-wrap {display: none;}
+	.header > .navi-wrap-mobile {display: block; padding: 1.75rem;}
+	.header > .navi-wrap-mobile .fa {font-size: 1.25rem;}
+	.header > .navi-wrap-mobile > .navi {padding: 0 0.5rem;}
+	.header > .logo {width: 80px;}
+	.header > .navi-wrap {}
+}
+
+/*
+.wrapper-fixed {width: 1200px; margin: 0 auto; border: 10px solid red; height: 50vh;}
+
+@media screen and (max-width: 1199px) {
+	.wrapper-fixed {width: 992px;}
+}
+@media screen and (max-width: 991px) {
+	.wrapper-fixed {width: 768px;}
+}
+@media screen and (max-width: 767px) {
+	.wrapper-fixed {width: 576px;}
+}
+@media screen and (max-width: 575px) {
+	.wrapper-fixed {width: 100%;}
+}
+*/
