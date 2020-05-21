@@ -83,3 +83,32 @@ body {height: 5000px;}
 .main-wrap .pager {float: left; cursor: pointer;}
 
 /************ wing-wrap **************/
+.wing-wrap {width: 100%; height: 100vh; background-color: #000; z-index: 1000; position: fixed; top: 0; opacity: 0; display: none;}
+.wing-rt {width: 40%; height: 100vh; position: fixed; top: 0; right: -40%; background-color: #fff; z-index: 1001; opacity: 0; display: none;}
+
+
+@media screen and (max-width: 767px) {
+	.header {position: absolute;}
+	.header > .navi-wrap {display: none;}
+	.header > .logo {width: 80px;}
+	.navi-wrap-mobile {display: block;}
+	.main-wrap {margin-top: 5rem;}
+}
+
+
+/*
+.wrapper-fixed {width: 1200px; margin: 0 auto; border: 10px solid red; height: 50vh;}
+
+@media screen and (max-width: 1199px) {
+	.wrapper-fixed {width: 992px;}
+}
+@media screen and (max-width: 991px) {
+	.wrapper-fixed {width: 768px;}
+}
+@media screen and (max-width: 767px) {
+	.wrapper-fixed {width: 576px;}
+}
+@media screen and (max-width: 575px) {
+	.wrapper-fixed {width: 100%;}
+}
+*/
