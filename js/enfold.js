@@ -45,12 +45,16 @@ var mainGap = 3000;
 var mainInterval;
 var mainPager = {off: '○', on: '●'};
 
+var $aboutSlide = $(".about-wrap .slide");
+var aboutNow = 0;
+var aboutLast = $aboutSlide.length - 1
+var aboutInterval;
+var aboutGap = 4000;
+aboutInit();
+onAboutLeave();
+
 
 /*********** 사용자정의 ***********/
-	mainInit();
-	mainPagerInit();
-	onMainLeave();
-
 function mainInit() {
 	$(".main-wrap .slides").empty();
 	// console.log($mainSlide); // -> 지워진 slide를 다시 붙이기 위해 밑에 addClass "slide"를 붙임
@@ -58,8 +62,6 @@ function mainInit() {
 	$($mainSlide[mainNow]).appendTo(".main-wrap .slides").removeClass("slide");
 }
 
-// var mainCircle = ['○', '●'];
-// if(mainNow == i) html = '<span class="pager">'+mainCircle[1]+'</span>';
 
 function mainPagerInit() {
 	for(var i=0, html; i<=mainLast; i++) {
@@ -68,6 +70,9 @@ function mainPagerInit() {
 		$(html).appendTo(".main-wrap .pagers").click(onMainPager);
 	}
 }
+
+// var mainCircle = ['○', '●'];
+// if(mainNow == i) html = '<span class="pager">'+mainCircle[1]+'</span>';
 
 // html: class를 안 주고 내용을 바꾸는 방식으로 pager 삽입
 function mainAni() {
@@ -81,10 +86,20 @@ function mainAni() {
 	.animate({"opacity": 1}, mainSpeed, mainInit);
 }
 
+
 function pfResize() {
 	var imgHeight = $(".pf").eq(0).find("img").height();
 	$(".pf").height(imgHeight * 0.8);
 	$(".pf").find("img").css("margin-top", (-imgHeight * 0.1)+"px");
+}
+
+function aboutInit() {
+	$("aboutSlide").height($aboutSlide.eq(0).height());
+}
+
+function aboutAni() {
+	$aboutSlide.css("opacity", 0);
+	$aboutSlide.eq(aboutNow).css("opacity", 1);
 }
 
 /*********** 이벤트콜백 ***********/
@@ -111,6 +126,7 @@ function onWingClick() {
 
 function onResize() {
 	pfResize();
+	aboutInit();
 	// mobile -> pc
 	if($(this).outerWidth()	>= 768) {
 		isWingShow = true;
@@ -124,8 +140,9 @@ function onResize() {
 }
 
 function onScroll() {
+	/*
 	scTop = $(this).scrollTop();
-	/* $(".header").css("background-color", "white")
+	 $(".header").css("background-color", "white")
 	if(scTop > 200)	$(".header").css("background-color", "beige")
 	if(scTop > 1000)	$(".header").css("background-color", "orange")
 	if(scTop > 2000)	$(".header").css("background-color", "red")
@@ -174,6 +191,33 @@ function onPfsLoaded() {
 	});
 }
 
+function onAboutPrev() {
+	aboutNow = (aboutNow == 0) ? aboutLast: aboutNow - 1;
+	aboutAni();
+}
+
+function onAboutNext() {
+	aboutNow = (aboutNow == aboutLast) ? 0: aboutNow + 1;
+	aboutAni();
+}
+
+function onAboutHover() {
+	clearInterval(aboutInterval);
+}
+
+function onAboutLeave() {
+	aboutInterval = setInterval(onAboutNext, aboutGap);
+}
+
+
+function onTwitterClick() {
+	// 1. 현재창에 링크
+	// location.href = '//twitter.com';
+
+	// 2. 새창에 링크
+	window.open('//twitter.com');
+}
+
 /*********** 이벤트등록 ***********/
 $(".bt-wing").click(onWingClick);
 $(window).resize(onResize);
@@ -185,3 +229,9 @@ $(".main-wrap").hover(onMainHover, onMainLeave);	// 콜백: onMainHover, onMainL
 $(".main-wrap").imagesLoaded(onMainLoaded);
 
 $(".pf-wrap .pfs").imagesLoaded(onPfsLoaded);
+
+$(".about-slide .bt-prev").click(onAboutPrev);
+$(".about-slide .bt-next").click(onAboutPrev);
+$(".about-slide").hover(onAboutHover, onAboutLeave);
+
+$(".footer .twitter").click(onTwitterClick);
