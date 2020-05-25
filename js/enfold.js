@@ -1,4 +1,36 @@
 /*********** 사전지식 ***********/
+/*
+for(var i=0; i<$(".loader").length; i++) {
+	console.log($(".loader").eq(i).parent());
+	console.log($(".loader").eq(i).parents());
+}
+
+loaderInit();
+function loaderInit() {
+	$(".loader-wrap").each(function(){
+		var $loaderWrap = $(this);
+		var $loader = $(this).find(".loader");
+		var $img = $(this).find("img");
+		console.log( $img.eq(0).height(), $img.eq(1).height()  );
+		var len = $img.length;	//2
+		var cnt = 0;
+		$(this).find(".loader").show();
+		$(this).find("img").on("load", function() {
+			console.log( $img.eq(0).height(), $img.eq(1).height()  );
+			console.log( $(this) );
+			cnt++;
+			console.log(cnt, len, $loader);
+			if(cnt == len) $loader.hide();
+			// main-wrap을 위한 곳
+			if($loaderWrap.hasClass("main-wrap")) {
+				mainInit();
+				mainPagerInit();
+				onMainLeave();
+			}
+		});
+	});
+}
+*/
 
 
 /*********** 전역변수 ***********/
@@ -12,15 +44,23 @@ var mainSpeed = 500;
 var mainGap = 3000;
 var mainInterval;
 var mainPager = {off: '○', on: '●'};
-mainInit();
-mainPagerInit();
-onMainLeave();
+
 
 /*********** 사용자정의 ***********/
+$(".loader-wrap").imagesLoaded(function(){
+	// console.log ( $(this) );  -> 객체가 바뀌어서 나옴
+	// console.log ( $(this.elements[0]) );
+	$(this.elements[0]).find(".loader").hide();
+	mainInit();
+	mainPagerInit();
+	onMainLeave();
+});
+
+
 function mainInit() {
-	console.log($mainSlide); // -> 지워진 slide를 다시 붙이기 위해 밑에 addClass "slide"를 붙임
-	// removeClass 는 position absolute를 없애서 main-wrap에 이미지만큼 height를 주기 위함
 	$(".main-wrap .slides").empty();
+	// console.log($mainSlide); // -> 지워진 slide를 다시 붙이기 위해 밑에 addClass "slide"를 붙임
+	// removeClass 는 position absolute를 없애서 main-wrap에 이미지만큼 height를 주기 위함
 	$($mainSlide[mainNow]).appendTo(".main-wrap .slides").removeClass("slide");
 }
 
@@ -123,3 +163,7 @@ $(window).scroll(onScroll);
 $(".main-wrap .bt-prev").click(onMainPrev);
 $(".main-wrap .bt-next").click(onMainNext);
 $(".main-wrap").hover(onMainHover, onMainLeave);	// 콜백: onMainHover, onMainLeave
+
+$(".loader").on("load", function(){
+	console.log($(this));
+	});
