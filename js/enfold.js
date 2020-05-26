@@ -211,8 +211,9 @@ function onScroll() {
  	$(".ani").each(function(){
 	 var top = $(this).offset().top;
 	 if(sum > top) {
-		 $(this).css("animation-name", $(this).data("ani"));
 		 if($(this).data("delay")) $(this).css("animation-delay", $(this).data("delay"));
+		 $(this).css("animation-name", "running");
+		 // $(this).css("animation-name", $(this).data("ani"));
 	 }
 	//  else {
 	// 	$(this).css("animation-name", "none");
