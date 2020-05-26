@@ -30,6 +30,54 @@ function loaderInit() {
 		});
 	});
 }
+
+// dataSet 알아보기 
+// API - Application Provider Interface
+var $sample = $("#sample");
+console.log( $sample );
+console.log( $sample[0] );
+//getter
+console.log( $sample.attr("id") );
+console.log( $sample.attr("class") );
+console.log( $sample.data("name") );
+console.log( $sample.data("speed") );
+console.log( $sample.data("booldook") );
+console.log( $sample.data("delay") );
+//setter -> 객체 자체를 리턴해줌
+console.log( $sample.attr("id", "sample2") );
+console.log( $sample.attr("class", "sample2") );
+console.log( $sample.data("name", "sample-data2") );
+console.log( $sample.data("speed", 5000) );
+console.log( $sample.data("booldook", false) );
+console.log( $sample.data("delay", 2000) );
+//getter
+console.log( $sample.attr("id") );
+console.log( $sample.attr("class") );
+console.log( $sample.data("name") );
+console.log( $sample.data("speed") );
+console.log( $sample.data("booldook") );
+console.log( $sample.data("delay") );
+
+
+// 크기, 위치
+console.log( $(".slogan-wrap").width(), $(".slogan-wrap").height() );
+console.log( $(".slogan-wrap").innerWidth(), $(".slogan-wrap").innerHeight() );
+console.log( $(".slogan-wrap").outerWidth(), $(".slogan-wrap").outerHeight() );
+console.log( $(".slogan-wrap").outerWidth(true), $(".slogan-wrap").outerHeight(true) );
+// width(), height() -> margin, padding, border를 제외한 크기
+// innerWidth(), innerHeight() -> margin, border를 제외한 크기 - padding 포함
+// outerWidth(), outerHeight() -> margin을 제외한 크기 - padding, bordrer 포함
+// outerWidth(true), outerHeight(true) -> margin, padding, border 포함
+
+console.log( $(".slogan-wrap").offset() );
+console.log( $(".slogan-wrap").position() );
+console.log( $(".slogan-wrap .contents").offset() );		// margin을 제외한 거리
+console.log( $(".slogan-wrap .contents").position() );	// margin도 포함한 거리
+
+console.log( $(".pf").eq(0).find(".desc").offset().left );			// 문서 끝으로 부터의 거리
+console.log( $(".pf").eq(0).find(".desc").position().top );		// 기준점(내가 position모델일 떄 나의 부모)으로 부터의 거리
+
+console.log( $(window).scrollTop() );		// 스크롤이 되어서 문서가 얼마나 위로 올라갔는지..
 */
 
 
@@ -179,6 +227,11 @@ $(".loader-wrap").imagesLoaded(function(){
 	// console.log ( $(this) );  -> 객체가 바뀌어서 나옴
 	// console.log ( $(this.elements[0]) );
 	$(this.elements[0]).find(".loader").hide();
+	/* console.log( $(".slogan-wrap").offset() );
+	console.log( $(".slogan-wrap").position() );
+	console.log( $(".slogan-wrap .contents").offset() );
+	console.log( $(".slogan-wrap .contents").position() );
+	*/
 });
 }
 
