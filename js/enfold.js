@@ -78,11 +78,20 @@ console.log( $(".pf").eq(0).find(".desc").offset().left );			// 문서 끝으로
 console.log( $(".pf").eq(0).find(".desc").position().top );		// 기준점(내가 position모델일 떄 나의 부모)으로 부터의 거리
 
 console.log( $(window).scrollTop() );		// 스크롤이 되어서 문서가 얼마나 위로 올라갔는지..
+
+($window).scroll(function() {
+	scTop = $(this).scrollTop();
+	 $(".header").css("background-color", "white")
+	if(scTop > 200)	$(".header").css("background-color", "beige")
+	if(scTop > 1000)	$(".header").css("background-color", "orange")
+	if(scTop > 2000)	$(".header").css("background-color", "red")
+});
 */
 
 
 /*********** 전역변수 ***********/
-var scTop = 0;
+var scTop = 0;		// $(window).scrollTop()
+var winHei = 0;		// $(window).Height()
 var isWingShow = false;
 
 var $mainSlide = $(".main-wrap .slide");
@@ -188,13 +197,27 @@ function onResize() {
 }
 
 function onScroll() {
-	/*
 	scTop = $(this).scrollTop();
-	 $(".header").css("background-color", "white")
-	if(scTop > 200)	$(".header").css("background-color", "beige")
-	if(scTop > 1000)	$(".header").css("background-color", "orange")
-	if(scTop > 2000)	$(".header").css("background-color", "red")
- */
+	// console.log(scTop, $(".slogan-wrap .contents").offset().top, $(window).height);
+	// console.log( scTop + winHei, $(".slogan-wrap .contents").offset().top );
+	var sum = scTop + winHei;
+	// var content = $(".slogan-wrap .content").offset().top;
+	/* if(sum > content) {
+		console.log("나타남");
+	}
+	else {
+		console.log("안보임");
+	} */
+ 	$(".ani").each(function(){
+	 var top = $(this).offset().top;
+	 if(sum > top) {
+		 $(this).css("animation-name", $(this).data("ani"));
+		 if($(this).data("delay")) $(this).css("animation-delay", $(this).data("delay"));
+	 }
+	//  else {
+	// 	$(this).css("animation-name", "none");
+	//  }  -> 넣으면 여러번 적용됨
+ });
  }
 
 
@@ -273,7 +296,7 @@ function onTwitterClick() {
 
 /*********** 이벤트등록 ***********/
 $(".bt-wing").click(onWingClick);
-$(window).resize(onResize);
+$(window).resize(onResize).trigger("resize") ;
 $(window).scroll(onScroll);
 
 $(".main-wrap .bt-prev").click(onMainPrev);
