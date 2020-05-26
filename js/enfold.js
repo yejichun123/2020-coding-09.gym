@@ -151,7 +151,7 @@ function pfResize() {
 }
 
 function aboutInit() {
-	$("aboutSlide").height($aboutSlide.eq(0).height());
+	$(".aboutSlide").height($aboutSlide.eq(0).height());
 }
 
 function aboutAni() {
@@ -182,6 +182,7 @@ function onWingClick() {
 }
 
 function onResize() {
+	winHei = $(this).innerHeight();
 	pfResize();
 	aboutInit();
 	// mobile -> pc
