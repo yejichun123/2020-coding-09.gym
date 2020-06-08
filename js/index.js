@@ -32,3 +32,19 @@ $(".ad-icon").hover(function(){
 }, function(){
 	$(this).find(".icon-sub").stop().slideUp(300)
 })
+
+
+
+/************ 배너 ************/
+
+var mainNow = 0;
+var mainPrev, mainNext, mainLast;
+
+function onMainNext(){
+	$(".banner1-wrap").find("ban2").stop().animate({"top": 0}, 500);
+}
+
+
+
+$(".bt-prev").click(onMainPrev);
+$(".banner1-wrap .bt-next").click(onMainNext);
