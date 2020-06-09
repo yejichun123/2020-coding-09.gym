@@ -14,7 +14,7 @@ font-family: 'Oswald', sans-serif; */
 
 
 /************* Header **************/
-.header {position: fixed; width: 100%; background-color: white; z-index: 99;}
+.header {position: fixed; width: 100%; background-color: white; z-index: 150;}
 .logo {width: 208px; margin: 0 30px; float: left; cursor: pointer;}
 .navi-wrap {float: right; font-family: 'Lato', sans-serif; color: #777; font-size: 14px; font-weight: 700;}
 .navi-wrap > li:not(:last-child) {float: left; padding: 27px 20px; text-align: center;  border-left: 1px solid #ddd;}
@@ -34,9 +34,10 @@ font-family: 'Oswald', sans-serif; */
 .main-wrap {padding-top: 0px; text-align: center; color: white;}
 .banner1-wrap {position: relative; width: 100%; /* overflow: hidden; */}
 .ban {position: relative;}
-.ban2 {position: absolute; top: -50%; width: 100%; z-index: 999;}
-.ban3 {position: absolute; top: -100%; width: 100%; z-index: 999; display: none;}
-.ban4 {position: absolute; bottom: -100%; width: 100%; z-index: 999;}
+.ban1 {position: absolute; top: 0%; width: 100%; z-index: 100;}
+.ban2 {position: absolute; top: -100%; width: 100%; z-index: 101;}
+.ban3 {position: absolute; top: 100%; width: 100%; z-index: 99;}
+.ban4 {position: absolute; top: 100%; width: 100%; z-index: 99; display: none;}
 .darken {background-color: black; opacity: 0.3; width: 100%; height: 100%; position: absolute; bottom: 0px;}
 .img-words {position: absolute; width: 100%; top: 50%; transform: translateY(-50%);}
 .main-title {font-size: 70px; line-height: 80px;}
@@ -44,11 +45,11 @@ font-family: 'Oswald', sans-serif; */
 .bt-try {font-family: 'Lato'; border: 3px solid white; color: white; background-color: rgba(0, 0, 0, 0.3); padding: 12px 18px;}
 .bt-try:hover {opacity: 0.7; cursor: pointer;}
 
-.banner1-wrap > .bt {color: #fff; font-size: 2rem; line-height: 56px; width: 60px; height: 60px; text-align: center; border: 2px solid #fff; position: absolute; top: calc(50% - 30px); cursor: pointer; z-index: 9000;}
+.banner1-wrap > .bt {color: #fff; font-size: 2rem; line-height: 56px; width: 60px; height: 60px; text-align: center; border: 2px solid #fff; position: absolute; top: calc(50% - 30px); cursor: pointer; z-index: 140;}
 .banner1-wrap > .bt.bt-prev {left: 1rem;}
 .banner1-wrap > .bt.bt-next {right: 1rem;}
 
-.banner1-wrap > .pagers {position: absolute; z-index: 900; bottom: 1rem; left: 50%; transform: translateX(-50%);}
+.banner1-wrap > .pagers {position: absolute; z-index: 140; bottom: 1rem; left: 50%; transform: translateX(-50%);}
 .banner1-wrap .pager {font-size: 1rem; color: #fff; cursor: pointer;}
 .banner1-wrap .pager::before {content: "○";}
 .banner1-wrap .pager.active::before {content: "●";}

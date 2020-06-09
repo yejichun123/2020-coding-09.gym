@@ -41,10 +41,18 @@ var mainNow = 0;
 var mainPrev, mainNext, mainLast;
 
 function onMainNext(){
-	$(".banner1-wrap").find("ban2").stop().animate({"top": 0}, 500);
+	$(".banner1-wrap > .ban2").stop().animate({"top": 0 + "%"}, 500, function(){
+		$("this").css("z-index", "100")
+	});
+	$(".banner1-wrap > .ban1").stop().animate({"top": "100" + "%"}, 1000);
+}
+
+function onMainPrev(){
+	$(".banner1-wrap > .ban1").stop().animate({"z-index": "999", "top": 0 + "%"}, 500);
+	$(".banner1-wrap > .ban2").stop().animate({"bottom": "200" + "%"}, 250);
 }
 
 
 
-$(".bt-prev").click(onMainPrev);
+$(".banner1-wrap .bt-prev").click(onMainPrev);
 $(".banner1-wrap .bt-next").click(onMainNext);
